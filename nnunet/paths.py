@@ -31,6 +31,7 @@ try:
     # automatically (they are subfolders of base).
     # Here I use environment variables to set the base folder. Environment variables allow me to use the same code on
     # different systems (and our compute cluster)
+    base = "/home/AD/f358g/nnUNet/Task01_onlymp2rage"
     base = os.environ['nnUNet_base']
     raw_dataset_dir = join(base, "nnUNet_raw")
     splitted_4d_output_dir = join(base, "nnUNet_raw_splitted")
@@ -44,10 +45,12 @@ except KeyError:
 # preprocessing_output_dir is where the preprocessed data is stored. If you run a training I very strongly recommend
 # this is a SSD!
 try:
+    preprocessing_output_dir = "/home/AD/f358g/nnUNet/preprocessing_folder"
     preprocessing_output_dir = os.environ['nnUNet_preprocessed']
 except KeyError:
     preprocessing_output_dir = None
 
 # This is where the trained model parameters are stored
+network_training_output_dir = "/home/AD/f358g/nnUNet/model_parameter"
 network_training_output_dir = os.path.join(os.environ['RESULTS_FOLDER'], my_output_identifier)
 maybe_mkdir_p(network_training_output_dir)
